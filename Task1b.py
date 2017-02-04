@@ -11,18 +11,18 @@ from floodsystem.stationdata import build_station_list
 
 stations = build_station_list()
 
-def hello():
+def distance():             #Defining Function
     
     stations = build_station_list()
 
-    listofstations = stations_by_distance(stations,(52.2053, 0.1218))
+    listofstations = stations_by_distance(stations,(52.2053, 0.1218)) #Specify coordinates
     
     
     
     return listofstations
 
-print("Closest 10" ,hello()[:10])
-
-print("Furthest 10" ,hello()[-10:]) 
+print("Closest 10" ,distance()[:10])
+print('\n')  #Adding a space
+print("Furthest 10" ,distance()[-10:]) 
 
     

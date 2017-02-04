@@ -9,9 +9,9 @@ Created on Tue Jan 31 15:48:57 2017
 from floodsystem.geo import stations_within_radius
 from floodsystem.stationdata import build_station_list
 
-def radius():
+def radius():    #Defining a function
     stations= build_station_list()
-    listofstations = stations_within_radius(stations,(52.2053, 0.1218), 10)
+    listofstations = stations_within_radius(stations,(52.2053, 0.1218), 10) #Defining the parameters
     print(listofstations)
 
 radius()
