@@ -1,4 +1,10 @@
-"""Unit test for the station module"""
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Feb  6 17:03:36 2017
+
+@author: Terry
+"""
 
 import pytest
 from floodsystem.station import MonitoringStation
