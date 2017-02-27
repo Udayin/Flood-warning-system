@@ -63,9 +63,9 @@ def plot_water_level_with_fit(station, dates, levels, p):
     plt.ylabel('water level (m)')
     plt.title(station.name)
    
-    Lower, Upper = station.typical_range
-    plt.plot(Lower, levels)
-    plt.plot(Upper, levels)
+    #Lower, Upper = station.typical_range
+    #plt.plot(Lower, levels)
+    #plt.plot(Upper, levels)
    
     plt.show()
      
