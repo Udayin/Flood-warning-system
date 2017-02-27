@@ -13,11 +13,12 @@ def run():
     
     stations= build_station_list()
     update_water_levels(stations)
-    dangerous_stations=stations_highest_rel_level(stations, 10)
+    dangerous_stations = stations_highest_rel_level(stations, 10)
     
     for i in dangerous_stations:
         print(i.name, ":", i.relative_water_level())
 
 if __name__ == "_main":
+    print("***Task 2C***")
     
-    run()
+run()

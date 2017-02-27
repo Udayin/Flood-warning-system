@@ -16,11 +16,13 @@ def run():
     update_water_levels(stations)
     tuplist = stations_level_over_threshold(stations,0.8)
     
-    
     for i in tuplist:
         print(i[0].name, ":", i[1])
+    #print(stations_level_over_threshold(stations, 0.8))
+   # for i in tuplist:
+     
         
-if __name__ == "_main_":
-    
-    run()
-                            
+
+if __name__ == "__main__":
+    print("***Task 2B***")        
+run()
