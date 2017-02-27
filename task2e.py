@@ -26,7 +26,7 @@ def run():
         dt=10
         station, relative_level = i
         dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=dt))
-        plot_water_levels(station.name, dates, levels, station.typical_range[0], station.typical_range[1])
+        plot_water_levels(station, dates, levels)
         print(dates[0])
         print(levels[0])
 
