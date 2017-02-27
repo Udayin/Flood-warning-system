@@ -1,26 +1,41 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Tue Jan 24 18:01:03 2017
 
-from floodsystem.station import *
-from floodsystem.stationdata import build_station_list, update_water_levels
+@author: Rose Humphry
+"""
+
 from floodsystem.utils import sorted_by_key
 
-def stations_level_over_threshold(stations, tol=0):
-    """ Function that takes a list of stations and a tolerance 
-    and returns the list of tuples (name of station with relative water level over tolerance, relative water level)"""
-    S = []
-    update_water_levels(stations)
+def stations_level_over_threshold(stations, tol):
+    ''' a function that returns a list of tuples, 
+    where each tuple holds (1) a station at which the latest
+    relative water level is over tol and (2) the relative water
+    level at the station. The returned list should be sorted 
+    by the relative level in descending order.'''
+    stations_over_threshold = []
     for station in stations:
-        if station.relative_water_level() == None:
-            pass
         if type(station.relative_water_level()) == float:
             if station.relative_water_level() > tol:
-                S += [(station.name, station.relative_water_level())]
-    return sorted_by_key (S, 1, reverse = True)
+                station_tup = (station.name, station.relative_water_level())
+                stations_over_threshold.append(station_tup)
+                stations_over_threshold.sort()
+    return stations_over_threshold
 
-    
-    
-    
-    
+
 def stations_highest_rel_level(stations, N):
-    S = stations_level_over_threshold(stations, tol=0)
-    return S[:N-1]
+    '''A function that takes a list of stations and 
+    returns a list of the N stations at which the water level, 
+    relative to the typical range, is highest. The list should 
+    be sorted in descending order by relative level.'''
+    most_at_risk_stations = []
+    for station in stations:
+        if type(station.relative_water_level()) == float:
+            x = station.relative_water_level()
+            most_at_risk_stations += [(station, float("{0:.6f}".format(x)))]
+        else:
+            pass
+
+    sorted_most_at_risk_stations = sorted_by_key(most_at_risk_stations, 1, True)
+    return sorted_most_at_risk_stations[:N]
+
